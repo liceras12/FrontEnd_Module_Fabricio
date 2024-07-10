@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <h1>Palíndromos</h1>
+    <input type="text" id="inputText" placeholder="Introduce una frase...">
+    <button onclick="checkPalindrome()">Verificar</button>
+    <p id="result"></p>
+
+    <script>
+        function isPalindrome(str) {
+            str = str.toLowerCase();
+            
+            str = str.replace(/[^a-z]/g, "");
+            
+            return str === str.split('').reverse().join('');
+        }
+
+        function checkPalindrome() {
+            const inputText = document.getElementById('inputText').value;
+            const resultElement = document.getElementById('result');
+            const result = isPalindrome(inputText);
+            if (result) {
+                resultElement.textContent = "True";
+            } else {
+                resultElement.textContent = "False";
+            }
+        }
+    </script>
+</body>
+</html>
